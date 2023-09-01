@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicFestivalApp.View.ArtistListView"
+               xmlns:viewModels ="clr-namespace:MusicFestivalApp.ViewModel"
+             xmlns:searchHandlers ="clr-namespace:MusicFestivalApp.SearchHandlers"
+             xmlns:models="clr-namespace:MusicFestivalApp.Model"
+             x:DataType="viewModels:ArtistListViewModel"
+            xmlns:views="clr-namespace:MusicFestivalApp.View"
+                          Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource greenlish-80cbc4}"
+
+             Title="ArtistListView">
+    <Shell.SearchHandler>
+        <searchHandlers:DataSearchHandler 
+            DisplayMemberName="ArtistName"
+            SearchBoxVisibility="Collapsible"
+            ShowsResults="True" 
+            Placeholder="Search"
+            QueryIcon="search" 
+            ClearIcon="cross"
+            NavigationRoute="AddUpdateArtistList"
+
+
+            
+            Artists="{x:Static viewModels:ArtistListViewModel.ArtistListForSearch}">
+           
+
+
+
+
+            <searchHandlers:DataSearchHandler.ItemTemplate>
+                <DataTemplate x:DataType="models:ArtistModel">
+                    <Grid RowDefinitions="Auto" ColumnDefinitions="40,Auto">
+                        <Label Text="{Binding ArtistName}" FontSize="18" FontAttributes="Italic"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </searchHandlers:DataSearchHandler.ItemTemplate>
+        </searchHandlers:DataSearchHandler>
+    </Shell.SearchHandler>
+    <ScrollView>
+
+        <VerticalStackLayout Padding="10,0,10,0">
+            <VerticalStackLayout Spacing="5"  >
+                <!-- Add Festival Button-->
+                <Button Text="Add Artist"
+                        Margin="10"
+                        BackgroundColor="{StaticResource greenlish-80cbc4}" 
+                        BorderColor="{StaticResource greenlish-46b6ac}" 
+                        Command="{Binding AddUpdateArtistCommand}" HorizontalOptions="EndAndExpand"/>
+                <!-- week days horizantal-->
+                <!--<ActivityIndicator IsRunning="True" IsVisible="{Binding IsBusy}" HeightRequest="30" WidthRequest="30"/>-->
+                <CollectionView Margin="0,5,0,0" HorizontalOptions="End" ItemsSource="{Binding ArtistsList}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:ArtistModel">
+                            
+                            <Grid Margin="0,5,5,5" HeightRequest="150" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="980"  />
+                                </Grid.ColumnDefinitions>
+                               
+                                
+                              
+                                <Frame  BorderColor="{StaticResource White}"  HeightRequest="400" Style="{StaticResource CardView}" Padding="0" CornerRadius="10"  Grid.Row="1" Grid.Column="1" >
+                                    <StackLayout Spacing="0" HeightRequest="300" >
+                                        <Grid Margin="0,0,0,0" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="10"/>
+                                                <RowDefinition Height="*"/>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="600" />
+
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <HorizontalStackLayout>
+
+                                                <StackLayout Padding="5" Spacing="5" BackgroundColor="{StaticResource White}" >
+                                                    <HorizontalStackLayout WidthRequest="1000" Padding="10" BackgroundColor="{StaticResource greenlish-46b6ac}">
+                                                        <!--<Label TextColor="#000" FontSize="17" Text="Artist:  "/>-->
+
+                                                        <Label TextColor="#fff" FontSize="18" Text="{Binding ArtistName}"/>
+                                                    </HorizontalStackLayout>
+                                                    <HorizontalStackLayout>
+                                                        <Label TextColor="#000" FontSize="17" Text="country:  "/>
+
+                                                        <Label TextColor="#000" FontSize="18" Text="{Binding Country}"/>
+                                                    </HorizontalStackLayout>
+                                                    <HorizontalStackLayout Spacing="25" Grid.Row="0" Grid.Column="0">
+                                                        <Label TextColor="#000" FontSize="17" Text="Genre:  "/>
+
+                                                        <Label TextColor="#000" FontSize="18" Text="{Binding genre}"/>
+
+                                                    </HorizontalStackLayout>
+                                                </StackLayout>
+                                            </HorizontalStackLayout>
+                                            <!-- Image will appear but not adjested-->
+                                            <!--<VerticalStackLayout Margin="0,0,0,200"  Padding="10" BackgroundColor="{StaticResource greenlish-46b6ac}">
+                                                --><!--<Label TextColor="#000" FontSize="17" Text="Image:  "/>--><!--
+                                                <Image  Aspect="AspectFit" WidthRequest="200" HeightRequest="300" Source="{Binding Avatar}" Margin="10" />
+                                                <Label TextColor="#fff" FontSize="18" Text="{Binding ArtistName}"/>
+                                            </VerticalStackLayout>-->
+
+                                        </Grid>
+
+                                    </StackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                Command="{Binding 
+                                Source={x:RelativeSource AncestorType={x:Type viewModels:ArtistListViewModel}}
+                                ,Path=DisplayActionsCommand}" CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+             
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+      
+        --><!--<Frame  Grid.Row="0" Grid.Column="1" BackgroundColor="BlueViolet">
+            <VerticalStackLayout Spacing="5"  >
+                <Label TextColor="#000" FontSize="18" HorizontalTextAlignment="Center" Text="Justin Biber"/>
+                --><!--<Label TextColor="#fff" FontSize="14" Text=""/>
+                -->
+                <!--<Label TextColor="#fff" FontSize="14" Text="{Binding Artist}"/>-->
+                <!--
+
+                <Label TextColor="#fff" FontSize="14" Text="GlanCar park Letterkenny "/>
+                <HorizontalStackLayout Spacing="25" Grid.Row="0" Grid.Column="0">
+                    <Label Text="{Binding StartDateTime, StringFormat='{0:hh:mm tt}' }"/>
+
+                    <Label Text="{Binding EndDateTime, StringFormat='{0:hh:mm tt}' }"/>
+                </HorizontalStackLayout>--><!--
+
+
+            </VerticalStackLayout>
+
+        </Frame>--><!--
+    </Grid>-->
+
+</ContentPage>

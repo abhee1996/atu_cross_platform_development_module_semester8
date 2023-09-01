@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicFestivalApp.View.AboutView"
+                          Shell.NavBarIsVisible="False"
+                          BackgroundImageSource="img2.jpg"
+
+
+             Title="AboutView">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to Geil Music Festival!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label HorizontalTextAlignment="Center" Text="Geíl Music Festival 2023 is going to organise In letterkenny, Donegal Ireland.
+The festival will be held over three days between August 11th and 12th 2023. The festival has
+been running for several years and has seen a significant rise in popularity over that time.
+The organisers expect over 20,000 people to attend in 2023" FontSize="14" FontFamily="Calibri"/>
+    </VerticalStackLayout>
+</ContentPage>

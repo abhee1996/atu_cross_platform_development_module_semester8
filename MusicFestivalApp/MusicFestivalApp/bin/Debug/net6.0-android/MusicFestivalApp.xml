@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MusicFestivalApp</name>
+    </assembly>
+    <members>
+        <member name="P:MusicFestivalApp.Model.DaysModel.IsSelected">
+            <inheritdoc cref="F:MusicFestivalApp.Model.DaysModel._isSelected"/>
+        </member>
+        <member name="P:MusicFestivalApp.ViewModel.AddUpdateArtistViewModel.ArtistListDetail">
+            <inheritdoc cref="F:MusicFestivalApp.ViewModel.AddUpdateArtistViewModel._artistListDetail"/>
+        </member>
+        <member name="P:MusicFestivalApp.ViewModel.AddUpdateFestivalEventDetailViewModel.FestivalEventDetail">
+            <inheritdoc cref="F:MusicFestivalApp.ViewModel.AddUpdateFestivalEventDetailViewModel._festivalEventDetail"/>
+        </member>
+        <member name="P:MusicFestivalApp.ViewModel.AddUpdateSponsorViewModel.SponsorListDetail">
+            <inheritdoc cref="F:MusicFestivalApp.ViewModel.AddUpdateSponsorViewModel._sponsorListDetail"/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicFestivalApp.View.HomeView"
+                          Shell.NavBarIsVisible="False"
+                          BackgroundColor="{StaticResource greenlish-80cbc4}"
+
+             >
+
+    <ScrollView>
+        <VerticalStackLayout >
+            <Label 
+            Text="Welcome to Geil Music Festival!"
+            TextColor="{StaticResource White}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="45"
+            FontAttributes="Bold, Italic"
+            FontFamily="Lobster-Regular"
+            />
+            <VerticalStackLayout Padding="5,20,5,10" Margin="60"  HorizontalOptions="Center" VerticalOptions="Center"              
+                                 BackgroundColor="{StaticResource greenlish-46b6ac}" WidthRequest="500" HeightRequest="200">
+                <Label Text="Open Invitation" FontSize="30"   FontFamily="ArimaMadurai-Black"         FontAttributes="Bold, Italic"
+ TextColor="#ffff00"  VerticalOptions="Center"  HorizontalTextAlignment="Center" 
+            HorizontalOptions="Center" />
+                <Label Text="Friday 11th August 13th August @4.00PM"  HorizontalTextAlignment="Center"           FontAttributes="Bold, Italic"
+  FontFamily="MarkerFelt-Thin"   TextColor="#fff" FontSize="25"/>
+                <Label Text="Tickets are available online"  HorizontalTextAlignment="Center"           FontAttributes="Bold, Italic"
+  FontFamily="MarkerFelt-Thin"   TextColor="#fff" FontSize="25"/>
+            </VerticalStackLayout>
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

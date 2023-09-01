@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicFestivalApp.View.SponsorsListView"
+                          Shell.NavBarIsVisible="False"
+ xmlns:viewModels ="clr-namespace:MusicFestivalApp.ViewModel"
+             xmlns:searchHandlers ="clr-namespace:MusicFestivalApp.SearchHandlers"
+             xmlns:models="clr-namespace:MusicFestivalApp.Model"
+                          x:DataType="viewModels:SponsorsListViewModel"
+             BackgroundColor="{StaticResource greenlish-80cbc4}"
+             Title="Sponsors">
+    <Shell.SearchHandler>
+        <searchHandlers:SponsorSearchHandlar 
+            DisplayMemberName="SponsorName" SearchBoxVisibility="Collapsible" ShowsResults="True" 
+            Placeholder="Search" QueryIcon="search" ClearIcon="cross"
+            NavigationRoute="AddUpdateSponsorList"
+            Sponsors="{x:Static viewModels:SponsorsListViewModel.SponsorListForSearch}">
+            <searchHandlers:SponsorSearchHandlar.ItemTemplate>
+                <DataTemplate x:DataType="models:SponsorModel">
+                    <Grid RowDefinitions="Auto" ColumnDefinitions="40,Auto">
+                        <!--<Image Grid.Row="0" Grid.Column="0" Source="user" HeightRequest="35" WidthRequest="35"/>-->
+                        <Label Text="{Binding SponsorName}" FontSize="18" FontAttributes="Italic"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </searchHandlers:SponsorSearchHandlar.ItemTemplate>
+        </searchHandlers:SponsorSearchHandlar>
+    </Shell.SearchHandler>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Frame  Grid.Row="0" Grid.Column="1" BackgroundColor="{StaticResource greenlish-80cbc4}"  BorderColor="{StaticResource greenlish-80cbc4}">
+            <VerticalStackLayout Spacing="5"  >
+                <Button Text="Add Sponsor" BackgroundColor="{StaticResource greenlish-80cbc4}" BorderColor="{StaticResource greenlish-46b6ac}" Command="{Binding AddUpdateSponsorCommand}" HorizontalOptions="EndAndExpand"/>
+
+               <!--<ActivityIndicator IsRunning="True" IsVisible="{Binding IsBusy}" HeightRequest="30" WidthRequest="30"/>-->
+                <CollectionView Margin="0,5,0,0" HorizontalOptions="End" ItemsSource="{Binding SponsorsList}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:SponsorModel">
+                            <Grid  Margin="0,5,0,5" >
+                                <Grid.RowDefinitions RowDefinitions="50, 50, *, 50">
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="500" />
+
+                                </Grid.ColumnDefinitions>
+                                <Frame BorderColor="{StaticResource greenlish-80cbc4}" Style="{StaticResource CardView}" Padding="0" CornerRadius="0"  Grid.Row="1" Grid.Column="1" >
+                                    <VerticalStackLayout Spacing="0"  >
+                                        <HorizontalStackLayout Padding="10" BackgroundColor="{StaticResource greenlish-46b6ac}">
+                                            <Label TextColor="#fff" FontSize="17" Text="Sponsor:  "/>
+
+                                            <Label TextColor="#fff" FontSize="18" Text="{Binding SponsorName}"/>
+                                        </HorizontalStackLayout>
+                                        <StackLayout Padding="10" Spacing="5" BackgroundColor="{StaticResource White}" >
+                                            <Label TextColor="#000" FontSize="18" Text="{Binding SponsorName}"/>
+                                        </StackLayout>
+                                    </VerticalStackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                Command="{Binding 
+                                Source={x:RelativeSource AncestorType={x:Type viewModels:SponsorsListViewModel}}
+                                ,Path=DisplayActionsCommand}" CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </Frame>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicFestivalApp.View.AddUpdateArtistList"
+             Title="AddUpdateArtistList">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="TextColor" Value="SlateGray"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+   
+    
+    <VerticalStackLayout Margin="10" Spacing="15">
+        <Label 
+            Text="Add /Update Artist"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <VerticalStackLayout>
+            <Label  Text="Artist Name" FontSize="16" />
+            <Entry Text="{Binding ArtistListDetail.ArtistName}" Placeholder="Artist Name"/>
+            <BoxView HeightRequest="0.4" Color="Gray"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label  Text="Country" FontSize="16" />
+            <Entry Text="{Binding ArtistListDetail.Country}" Placeholder="Country"/>
+            <BoxView HeightRequest="0.4" Color="Gray"/>
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label  Text="Genre" FontSize="16" />
+            <Entry Text="{Binding ArtistListDetail.genre}" Placeholder="Genre"/>
+            <BoxView HeightRequest="0.4" Color="Gray"/>
+        </VerticalStackLayout>
+       <VerticalStackLayout>
+                <Label  Text="Avatar" FontSize="16" />
+            <Entry Text="{Binding ArtistListDetail.Avatar}" Placeholder="Avatar"/>
+                <BoxView HeightRequest="0.4" Color="Gray"/>
+            </VerticalStackLayout>
+        <!--  <VerticalStackLayout>
+            <Label  Text="Timing" FontSize="16" />
+            <Entry Text="{Binding FestivalEventDetail.EndDateTime}" Placeholder="End Timing"/>
+            <BoxView HeightRequest="0.4" Color="Gray"/>
+        </VerticalStackLayout>-->
+        <Button Text="Save" Command="{Binding AddUpdateArtistCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>

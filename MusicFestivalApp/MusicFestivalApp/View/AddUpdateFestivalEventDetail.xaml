@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicFestivalApp.View.AddUpdateFestivalEventDetail"
+             Title="Add / Update Festival Event Detail">
+        <ContentPage.Resources>
+            <ResourceDictionary>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="40"/>
+                    <Setter Property="TextColor" Value="SlateGray"/>
+                </Style>
+            </ResourceDictionary>
+        </ContentPage.Resources>
+        <VerticalStackLayout Margin="10" Spacing="15">
+            <VerticalStackLayout>
+                <Label  Text="Title" FontSize="16" />
+            <Entry Text="{Binding FestivalEventDetail.Title}" Placeholder="Title"/>
+                <BoxView HeightRequest="0.4" Color="Gray"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label  Text="Description" FontSize="16" />
+            <Entry Text="{Binding FestivalEventDetail.Description}" Placeholder="Description"/>
+                <BoxView HeightRequest="0.4" Color="Gray"/>
+            </VerticalStackLayout>
+     
+        <VerticalStackLayout>
+                <Label  Text="Timing" FontSize="16" />
+            <Entry Text="{Binding FestivalEventDetail.StartDateTime}" Placeholder="Start Timing"/>
+                <BoxView HeightRequest="0.4" Color="Gray"/>
+            </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label  Text="Timing" FontSize="16" />
+            <Entry Text="{Binding FestivalEventDetail.EndDateTime}" Placeholder="End Timing"/>
+            <BoxView HeightRequest="0.4" Color="Gray"/>
+        </VerticalStackLayout>
+        <Button Text="Save" Command="{Binding AddUpdateFestivalCommand}"/>
+        </VerticalStackLayout>
+</ContentPage>

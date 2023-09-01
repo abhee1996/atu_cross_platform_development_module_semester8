@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicFestivalApp.View.ArtistDetailView"
+             xmlns:viewModels ="clr-namespace:MusicFestivalApp.ViewModel"
+             x:DataType="viewModels:ArtistDetailViewModel"
+             BackgroundImageSource="img2.jpg"
+             >
+    <VerticalStackLayout    HorizontalOptions="Center">
+        <Label 
+            BackgroundColor="BurlyWood"
+            Margin="0,20,0,20"
+            Padding="20,20,20,20"
+            FontSize="30"
+            FontAttributes="Bold, Italic"
+            Text="Artist detail"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="650"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>-->
+            <!--<Frame  >-->
+        <VerticalStackLayout    BackgroundColor="BurlyWood" HeightRequest="230" WidthRequest="430" >
+            <VerticalStackLayout  HorizontalOptions="Center" VerticalOptions="Center">
+                <!--<Label TextColor="#000" FontSize="18" HorizontalTextAlignment="Center" Text="{Binding ArtistDetail.ArtistName}"/>
+
+                <Label TextColor="#000" FontSize="18" HorizontalTextAlignment="Center" Text="{Binding ArtistDetail.Performing}"/>
+                <Label TextColor="#000" FontSize="18" HorizontalTextAlignment="Center" Text="{Binding ArtistDetail.dateTime}"/>-->
+
+            </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            
+        <!--</Frame>-->
+    <!--</Grid>-->
+
+    </VerticalStackLayout>
+</ContentPage>
